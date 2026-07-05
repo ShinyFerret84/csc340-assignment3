@@ -1,4 +1,4 @@
-package com.example.charapi;
+package com.example.assignment3.charapi;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

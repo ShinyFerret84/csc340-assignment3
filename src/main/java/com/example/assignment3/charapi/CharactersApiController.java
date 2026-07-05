@@ -1,4 +1,4 @@
-package com.example.charapi;
+package com.example.assignment3.charapi;
 
 import java.util.Collections;
 import java.util.List;
