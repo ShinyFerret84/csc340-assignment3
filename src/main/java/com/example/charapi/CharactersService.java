@@ -52,4 +52,8 @@ public class CharactersService {
     public List<Characters> searchCharactersByName(String name) {
         return charactersRepository.findByNameContainingIgnoreCase(name);
     }
+
+    public List<Characters> getCharactersByOccupation(String occupation) {
+        return charactersRepository.findByOccupationContainingIgnoreCase(occupation);
+    }
 }

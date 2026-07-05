@@ -79,6 +79,22 @@ public class CharactersApiController {
         return ResponseEntity.ok(characters);
     }
 
+    @GetMapping("/Species")
+    public ResponseEntity<List<Characters>> getCharactersBySpecies(@RequestParam String species) {
+        List<Characters> characters = charactersService.getCharactersBySpecies(species);
+        if (characters.isEmpty()) {
+            return ResponseEntity.ok(Collections.emptyList());
+        }
+        return ResponseEntity.ok(characters);
+    }   
 
+    @GetMapping("/Occupation")
+    public ResponseEntity<List<Characters>> getCharactersByOccupation(@RequestParam String occupation) {
+        List<Characters> characters = charactersService.getCharactersByOccupation(occupation);
+        if (characters.isEmpty()) {
+            return ResponseEntity.ok(Collections.emptyList());
+        }
+        return ResponseEntity.ok(characters);
+    }
 
 }
