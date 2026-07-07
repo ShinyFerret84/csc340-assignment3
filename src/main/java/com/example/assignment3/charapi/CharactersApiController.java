@@ -79,7 +79,7 @@ public class CharactersApiController {
         return ResponseEntity.ok(characters);
     }
 
-    @GetMapping("/Species")
+    @GetMapping("/species")
     public ResponseEntity<List<Characters>> getCharactersBySpecies(@RequestParam String species) {
         List<Characters> characters = charactersService.getCharactersBySpecies(species);
         if (characters.isEmpty()) {
@@ -88,7 +88,7 @@ public class CharactersApiController {
         return ResponseEntity.ok(characters);
     }   
 
-    @GetMapping("/Occupation")
+    @GetMapping("/occupation")
     public ResponseEntity<List<Characters>> getCharactersByOccupation(@RequestParam String occupation) {
         List<Characters> characters = charactersService.getCharactersByOccupation(occupation);
         if (characters.isEmpty()) {
