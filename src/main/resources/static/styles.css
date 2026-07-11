@@ -1,0 +1,302 @@
+/* Body */
+body {
+    background-color: black;
+    color: #818589;
+    font-family: "Cinzel", serif;
+}
+
+/* Main Content */
+main {
+    padding: 25px;
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: #44251E;
+    border-bottom: 2px solid #44251E;
+    padding: 15px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 40px;
+    display: flex;
+    justify-content: center;
+}
+
+nav a{
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:link {
+    color: #d4af37;
+}
+
+nav a:visited {
+    color: #556b2f;
+}
+
+nav a:hover {
+    color: #8a0000;
+}
+
+nav a:active {
+    color: whitesmoke;
+}
+
+
+/* Headings */
+h1 {
+    color: #8a0000;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 35px;
+}
+
+h3 {
+    text-align: center;
+    font-weight: normal;
+}
+
+/* Search Bar */
+.search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0 60px;
+    gap: 10px;
+}
+
+.search-bar input{
+    width: 350px;
+    padding: 12px;
+    border: 2px solid #44251E;
+    border-radius: 6px;
+    background: #1b1b1b;
+    color: #d4af37;
+    font-family: "Cinzel", serif;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    background-color: #8a0000;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    font-family: "Cinzel", serif;
+}
+
+.search-bar button:hover {
+    background: #6d0000;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+/* Character Cards */
+.card {
+    background:#1b1b1b;
+    border: 2px solid #44251E;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #8a0000;
+}
+
+.card img {
+    width: 250px;
+    border-radius: 5px;
+    object-fit: cover;
+}
+
+.card h2 {
+    color: #d4af37;
+    font-size: 20px;
+    margin: 15px 0 10px;
+}
+
+.card p {
+    margin-bottom: 15px;
+}
+
+.card a {
+    text-decoration: none;
+    color: #8a0000;
+    font-weight: bold;
+}
+
+.card a:hover {
+    background: #8a0000;
+    color: whitesmoke;
+}
+
+/* Footer */
+footer {
+    background-color: #44251E;
+    color: #d4af37;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 50px;
+    border-top: 2px solid #8a0000;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Journal Page */
+.journal {
+    background: #e7d8b1;
+    color: #3b241c;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 40px;
+    border: 8px solid #5C4033;
+    border-radius: 8px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    line-height: 1.8;
+    position: relative;
+}
+
+.journal h1{
+    color: #8a0000;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.journal h2{
+    text-align: center;
+    color: #44251E;
+}
+
+.journal h3{
+    text-align: left;
+    color: #44251E;
+    margin-top: 30px;
+}
+
+.journal note {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.journal-image {
+    display: block;
+    margin: 25px auto;
+    max-width: 100%;
+    height: auto;
+    border: 6px solid #5C4033;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.journal hr {
+    border: 1px solid #8a0000;
+    margin: 30px 0;
+}
+
+.journal ul {
+    padding-left: 25px;
+}
+
+.journal-symbol {
+    position: absolute;
+    width: 65px;
+    height: auto;
+    opacity: 0.9;
+}
+
+.left-symbol {
+    top: 20px;
+    left: 20px;
+}
+
+.right-symbol {
+    top: 20px;
+    right: 20px;
+}
+
+/* Back Button */
+.back-button {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.back-button a {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #5C4033;
+    color: #d4af37;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.back-button a:hover {
+    background-color: #44251E;
+    color: whitesmoke;
+}
+
+/* About Page */
+.about-image {
+    display: block;
+    margin: 25px auto;
+    max-width: 100%;
+    height: auto;
+    align-items: center;
+}
+
+.about-content {
+    max-width: 900px;
+    margin: auto;
+    line-height: 1.8;    
+}
+
+/* New Character Form Page */
+form {
+    max-width: 700px;
+    margin: 40px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+input, select, textarea {
+    padding: 12px;
+    border: 2px solid #44251E;
+    border-radius: 6px;
+    background: #1b1b1b;
+    color: #d4af37;
+    font-family: "Cinzel", serif;
+}
+
+button[type="submit"] {
+    padding: 12px;
+    background-color: #8a0000;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    font-family: "Cinzel", serif;
+}
+
+button:hover {
+    background: #6d0000;
+}
