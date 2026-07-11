@@ -14,9 +14,21 @@ public class CharactersUiController {
         this.charactersService = charactersService;
     }
 
+    //Navigation
     @GetMapping("/about")
     public String about(){
     return "about";
+    }
+
+    @GetMapping("/characters")
+    public String getAllCharacters(Model model) {
+        model.addAttribute("characterList", charactersService.getAllCharacters());
+        return "index";
+    }
+
+    @GetMapping("/create")
+    public String showCreateForm() {
+        return "new-character-form";
     }
     
     @GetMapping("/characters/{id}")

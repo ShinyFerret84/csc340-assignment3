@@ -14,10 +14,9 @@
 
     <nav>
         <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="details.html">Details</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="new-character-form.html">Add a Character</a></li>
+            <li><a href="/characters">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/create">Add a Character</a></li>
         </ul>
     </nav>
 
