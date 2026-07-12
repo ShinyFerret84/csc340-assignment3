@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Add a Character | Supernatural Character Gallery</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=UnifrakturCook:wght@700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
@@ -28,7 +28,7 @@
             Share your favorite <em>Supernatural</em> character.
         </h3>
 
-        <form action="/create" method="post">
+        <form class="character-form" action="/create" method="post">
             <label>Character Name *</label> 
             <input type="text" name="name" placeholder="e.g., John Winchester" required> 
             

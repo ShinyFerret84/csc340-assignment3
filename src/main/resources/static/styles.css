@@ -240,42 +240,47 @@ footer p {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    text-align: center;
     margin-top: 40px;
     flex-wrap: wrap;
 }
 
-.action-buttons a,
-.action-buttons button {
+.action-buttons .button {
     display: inline-block;
+    width: auto;
     padding: 12px 24px;
     background-color: #5C4033;
     color: #d4af37;
     text-decoration: none;
     border: none;
     border-radius: 6px;
-    font-family: 'Cinzel', serif;
+    font-family: "Cinzel", serif;
     font-size: 1rem;
     font-weight: bold;
+    line-height: normal;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.action-buttons a:hover,
-.action-buttons button:hover {
+.action-buttons .button:hover {
     background-color: #44251E;
     color: whitesmoke;
 }
 
-.action-buttons form {
-    display: inline;
+.action-buttons .inline-form {
+    display: inline-block;
+    width: auto;
+    max-width: none;
+    margin: 0;
+    padding: 0;
 }
 
-.delete-button {
+.action-buttons .delete-button {
+    width: auto;
     background-color: #7B1E1E;
+    color: whitesmoke;
 }
 
-.delete-button:hover {
+.action-buttons .delete-button:hover {
     background-color: #5C1616;
 }
 
@@ -295,7 +300,7 @@ footer p {
 }
 
 /* New Character Form Page */
-form {
+.character-form {
     max-width: 700px;
     margin: 40px auto;
     display: flex;
@@ -303,7 +308,9 @@ form {
     gap: 15px;
 }
 
-input, select, textarea {
+.character-form input, 
+.character-form select, 
+.character-form textarea {
     padding: 12px;
     border: 2px solid #44251E;
     border-radius: 6px;
@@ -312,7 +319,7 @@ input, select, textarea {
     font-family: "Cinzel", serif;
 }
 
-button[type="submit"] {
+.character-form button[type="submit"] {
     padding: 12px;
     background-color: #8a0000;
     color: whitesmoke;
@@ -321,6 +328,6 @@ button[type="submit"] {
     font-family: "Cinzel", serif;
 }
 
-button:hover {
+.character-form button[type="submit"]:hover {
     background: #6d0000;
 }
