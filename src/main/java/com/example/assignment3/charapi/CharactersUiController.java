@@ -3,7 +3,9 @@ package com.example.assignment3.charapi;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class CharactersUiController {
@@ -32,6 +34,12 @@ public class CharactersUiController {
     @GetMapping("/create")
     public String showCreateForm() {
         return "new-character-form";
+    }
+
+    @PostMapping("/create")
+    public String createCharacter(@ModelAttribute Characters character) {
+        charactersService.addCharacter(character);
+        return "redirect:/characters";
     }
 
     //Details

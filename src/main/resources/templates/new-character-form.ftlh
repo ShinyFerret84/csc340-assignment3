@@ -28,43 +28,40 @@
             Share your favorite <em>Supernatural</em> character.
         </h3>
 
-        <form>
+        <form action="/create" method="post">
             <label>Character Name *</label> 
-            <input type="text" placeholder="e.g., John Winchester" required> 
+            <input type="text" name="name" placeholder="e.g., John Winchester" required> 
             
             <label>Species *</label> 
-            <select>
-                <option> ~~ Select a Species ~~</option>
-                <option>Human</option>
-                <option>Angel</option>
-                <option>Demon</option>
-                <option>Monster</option>
-                <option>Ghost</option>
-                <option>Prophet</option>
-                <option>Horseman</option>
-                <option>Other</option>
+            <select name="species" required>
+                <option value=""> ~~ Select a Species ~~</option>
+                <option value="Human">Human</option>
+                <option value="Angel">Angel</option>
+                <option value="Demon">Demon</option>
+                <option value="Monster">Monster</option>
+                <option value="Ghost">Ghost</option>
+                <option value="Prophet">Prophet</option>
+                <option value="Horseman">Horseman</option>
+                <option value="Other">Other</option>
             </select> 
 
             <label>Occupation *</label> 
-            <input type="text" placeholder="e.g., Hunter, Prophet, Hacker" required>
-            
-
-            <label>Image URL *</label> 
-            <input type="url" placeholder="e.g., https://example.com/image.jpg" required>
-            
+            <input type="text" name="occupation" placeholder="e.g., Hunter, Prophet, Hacker" required>
+                       
 
             <label>Short Description *</label> 
-            <textarea placeholder="Briefly describe the character..." required></textarea>
-            
-
-            <label>Abilities</label> 
-            <textarea placeholder="List the character's abilities..."></textarea>
+            <textarea name="description" placeholder="Briefly describe the character..." required></textarea>
             
 
             <label>First Appearance</label> 
-            <input type="text" placeholder="e.g., Season 1, Episode 1">
+            <input type="text" name="firstAppearance" placeholder="e.g., Season 1, Episode 1">
             
-
+            <label>Image URL *</label> 
+            <input type="url" name="imageUrl" placeholder="e.g., /Images/character-name.jpg" required>
+ 
+            <label>Thumbnail URL *</label> 
+            <input type="url" name="thumbImg" placeholder="e.g., /thumbnails/character-name.jpg" required>
+ 
             <button type="submit">Submit Character</button>
 
         </form>
