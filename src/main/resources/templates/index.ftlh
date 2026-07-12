@@ -39,7 +39,7 @@
         <!-- Character Cards -->
          <section class="gallery">
 
-            <#list charactersList as character>
+            <#list characterList as character>
 
                 <div class="card">
                     <img src="${character.thumbImg}" alt="${character.name}">
