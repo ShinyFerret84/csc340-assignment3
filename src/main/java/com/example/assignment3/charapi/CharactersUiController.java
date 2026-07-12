@@ -14,23 +14,27 @@ public class CharactersUiController {
         this.charactersService = charactersService;
     }
 
-    //Navigation
+    //About Page
     @GetMapping("/about")
     public String about(){
     return "about";
     }
 
+    //Index Page
     @GetMapping("/characters")
     public String getAllCharacters(Model model) {
-        model.addAttribute("characterList", charactersService.getAllCharacters());
+        model.addAttribute("characterList", 
+                        charactersService.getAllCharacters());
         return "index";
     }
 
+    //Add Character Form
     @GetMapping("/create")
     public String showCreateForm() {
         return "new-character-form";
     }
-    
+
+    //Details
     @GetMapping("/characters/{id}")
     public String getCharactersById(@PathVariable Long id, Model model) {
         Characters characters = charactersService.getCharacterById(id);

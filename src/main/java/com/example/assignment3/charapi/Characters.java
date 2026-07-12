@@ -37,11 +37,21 @@ public class Characters {
     @Column
     private String firstAppearance;
 
-    public Characters(String name, String description, String species, String occupation, String firstAppearance) {
+    @Column
+    private String imageUrl;
+
+    @Column
+    private String thumbImg;
+
+    public Characters(String name, String description, String species, String occupation, String firstAppearance, String imageUrl, String thumbImg) {
         this.name = name;
         this.description = description;
         this.species = species;
         this.occupation = occupation;
         this.firstAppearance = firstAppearance;
+        this.imageUrl = imageUrl;
+        this.thumbImg = thumbImg;
     }
+
+    
 }   
