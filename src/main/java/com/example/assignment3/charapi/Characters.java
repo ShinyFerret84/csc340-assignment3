@@ -34,13 +34,13 @@ public class Characters {
     @Column(nullable = false)
     private String occupation;
 
-    @Column
+    @Column(name = "first_appearance")
     private String firstAppearance;
 
-    @Column(name = "imageUrl")
+    @Column(name = "image_url")
     private String imageUrl;
 
-    @Column(name = "thumbImg")
+    @Column(name = "thumb_img")
     private String thumbImg;
 
     public Characters(String name, String description, String species, String occupation, String firstAppearance, String imageUrl, String thumbImg) {

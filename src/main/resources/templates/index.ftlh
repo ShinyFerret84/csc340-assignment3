@@ -42,7 +42,7 @@
             <#list characterList as character>
 
                 <div class="card">
-                    <img src="${character.thumbImg}!  alt="${character.name}">
+                    <img src="${character.thumbImg}" alt="${character.name}">
                     <h2>${character.name}</h2>
                     <p>${character.species} • ${character.occupation}</p>
                     <a href="/characters/${character.id?c}">View Details</a>
