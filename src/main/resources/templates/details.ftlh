@@ -35,7 +35,7 @@
             <h1>John Winchester's Journal</h1>
 
             <p class="journal-note">
-                <strong>Case File:</strong> # 0 ${character.id} ${character.name} <br>
+                <strong>Case File:</strong> # 0${character.id} ${character.name} <br>
                  <br>
             </p>   
 
@@ -91,8 +91,10 @@
 
             <div class="action-buttons">
 
-                <a href="/characters">Back to Gallery</a>
+                <a href="/characters" class="button">Back to Gallery</a>
+
                 <a href="/updateForm/${character.id?c}" class="button">Update Character</a>
+
                 <form action="/delete/${character.id?c}" method="post" class="inline-form">
                     <button type="submit" class="button delete-button">
                         Delete Character
