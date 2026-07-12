@@ -37,10 +37,10 @@ public class Characters {
     @Column
     private String firstAppearance;
 
-    @Column
+    @Column(name = "imageUrl")
     private String imageUrl;
 
-    @Column
+    @Column(name = "thumbImg")
     private String thumbImg;
 
     public Characters(String name, String description, String species, String occupation, String firstAppearance, String imageUrl, String thumbImg) {
