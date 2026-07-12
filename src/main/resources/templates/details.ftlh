@@ -25,17 +25,21 @@
         
         <section class="journal">
             
+            <!--I want these to change depending on the character, but not building that in for HW4
+            Left symbol will be species, will link to a search for that species
+            Right symbol(s) will be specials (anti-posession, men of letters, etc) depending on character association
             <image src = "Images/anti-posession.png" alt = "Anti-possession symbol" class="journal-symbol left-symbol">
             <image src = "Images/men-of-letters.png" alt = "Men of Letters symbol" class="journal-symbol right-symbol">
+            -->
             
             <h1>John Winchester's Journal</h1>
 
             <p class="journal-note">
-                <strong>Case File:</strong> # ${character.id} ${character.name} <br>
+                <strong>Case File:</strong> # 0 ${character.id} ${character.name} <br>
                  <br>
             </p>   
 
-            <img src="Images/sam-winchester.jpg" alt="Sam Winchester" class="journal-image">
+            <img src="${character.imageUrl}" alt="${character.name}" class="journal-image">
 
             <h2>${character.name}</h2>
 
@@ -51,6 +55,10 @@
             <h3>First Appearance:</h3>
             <p>${character.firstAppearance}</p>
 
+            <h3>Personality:</h3>
+            <p>${character.description}</p>
+
+            <!--Feature for later
             <h3> Abilities:</h3>
             <ul>
                 <li>Expert hunter and investigator</li>
@@ -60,12 +68,6 @@
                 <li>Experienced in exorcisms and supernatural rituals</li>
             </ul>
 
-            <h3>Personality:</h3>
-            <p> Sam is compassionate, intelligent, and determined to help others. 
-                While he was raised as a hunter, he often seeks peaceful solutions before resorting to violence.
-                His empathy and desire to save innocent people frequently guide the decisions he makes.
-            </p>
-
             <h3>Backstory:</h3>
             <p>
                 After witnessing the tragic death of this mother as an infant, Sam was raised by his father, John Winchester, to hunt monsters.
@@ -73,7 +75,7 @@
                 The disappearance of his father and subsequent murder of his girlfriend, Jessica, brought him back into hunting alongside his brother Dean.
                 Together they travel across the country protecting people from demons, ghosts, monsters, vampires, angels, and countless other supernatural threats.
             </p>
-        
+
             <h3>Weapons of Choice</h3>
             <ul>
                 <li>Demon-killing knife</li>
@@ -84,9 +86,19 @@
 
             <h3>Status:</h3>
             <p>Living (won't stay dead)</p>
+            -->
+           
 
-            <div class="back-button">
-                <a href="index.html">Back to Gallery</a>
+            <div class="action-buttons">
+
+                <a href="/characters">Back to Gallery</a>
+                <a href="/updateForm/${character.id?c}" class="button">Update Character</a>
+                <form action="/delete/${character.id?c}" method="post" class="inline-form">
+                    <button type="submit" class="button delete-button">
+                        Delete Character
+                    </button>
+                </form>
+
             </div>
 
         </section>

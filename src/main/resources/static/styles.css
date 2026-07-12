@@ -235,24 +235,48 @@ footer p {
 }
 
 /* Back Button */
-.back-button {
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
     text-align: center;
     margin-top: 40px;
+    flex-wrap: wrap;
 }
 
-.back-button a {
+.action-buttons a,
+.action-buttons button {
     display: inline-block;
     padding: 12px 24px;
     background-color: #5C4033;
     color: #d4af37;
     text-decoration: none;
+    border: none;
     border-radius: 6px;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
     font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.back-button a:hover {
+.action-buttons a:hover,
+.action-buttons button:hover {
     background-color: #44251E;
     color: whitesmoke;
+}
+
+.action-buttons form {
+    display: inline;
+}
+
+.delete-button {
+    background-color: #7B1E1E;
+}
+
+.delete-button:hover {
+    background-color: #5C1616;
 }
 
 /* About Page */

@@ -56,11 +56,11 @@
             <label>First Appearance</label> 
             <input type="text" name="firstAppearance" placeholder="e.g., Season 1, Episode 1">
             
-            <label>Image URL *</label> 
-            <input type="url" name="imageUrl" placeholder="e.g., /Images/character-name.jpg" required>
+            <label>Image *</label> 
+            <input type="text" name="imageUrl" placeholder="e.g., /Images/character-name.jpg" required>
  
-            <label>Thumbnail URL *</label> 
-            <input type="url" name="thumbImg" placeholder="e.g., /thumbnails/character-name.jpg" required>
+            <label>Thumbnail *</label> 
+            <input type="text" name="thumbImg" placeholder="e.g., /thumbnails/character-name.jpg" required>
  
             <button type="submit">Submit Character</button>
 
