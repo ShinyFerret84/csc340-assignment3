@@ -44,14 +44,14 @@ public class CharactersUiController {
 
     //Details
     @GetMapping("/characters/{id}")
-    public String getCharactersById(@PathVariable Long id, Model model) {
+    public String getCharactersById(@PathVariable("id") Long id, Model model) {
         Characters characters = charactersService.getCharacterById(id);
         model.addAttribute("character", characters);
         return "details";
     }
 
     @PostMapping("/delete/{id}")
-    public String deleteCharacter(@PathVariable Long id) {
+    public String deleteCharacter(@PathVariable("id") Long id) {
         Characters character = charactersService.getCharacterById(id);
 
         if (character != null) {
@@ -63,7 +63,7 @@ public class CharactersUiController {
 
     //Character Update Form
     @GetMapping("/updateForm/{id}")
-    public String showUpdateForm(@PathVariable Long id, Model model) {
+    public String showUpdateForm(@PathVariable("id") Long id, Model model) {
         Characters character = charactersService.getCharacterById(id);
 
         if (character == null) {
@@ -76,8 +76,8 @@ public class CharactersUiController {
 
     @PostMapping("/update/{id}")
     public String updateCharacter(
-            @PathVariable Long id,
-            @ModelAttribute Characters updatedCharacter) {
+            @PathVariable("id") Long id,
+            @ModelAttribute("character") Characters updatedCharacter) {
 
         charactersService.updateCharacter(id, updatedCharacter);
         return "redirect:/characters/" + id;

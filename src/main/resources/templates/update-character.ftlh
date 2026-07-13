@@ -87,10 +87,10 @@
             <input type="text" name="firstAppearance" value="${character.firstAppearance!''}">
             
             <label>Image *</label> 
-            <input type="text" name="imageUrl" value="${character.imageUrl}" required>
+            <input type="text" name="imageUrl" value="${character.imageUrl!''}" required>
  
             <label>Thumbnail *</label> 
-            <input type="text" name="thumbImg" value="${character.thumbImg}" required>
+            <input type="text" name="thumbImg" value="${character.thumbImg!''}" required>
  
             <div class="action-buttons">
                 <button type="submit">Update Character</button>
