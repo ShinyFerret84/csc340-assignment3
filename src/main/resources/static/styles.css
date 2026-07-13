@@ -331,3 +331,13 @@ footer p {
 .character-form button[type="submit"]:hover {
     background: #6d0000;
 }
+
+/* Update Form */
+.cancel-button {
+    background-color: #666;
+    color: whitesmoke;
+}
+
+.cancel-button:hover {
+    background-color: #444;
+}
