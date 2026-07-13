@@ -32,25 +32,55 @@
             <label>Character Name *</label> 
             <input type="text" name="name" value="${character.name}" required> 
             
-            <label>Species *</label> 
+            <label>Species *</label>
             <select name="species" required>
-                <option value="Human">
-                    <#if character.species == "Human">selected</#if>>Human</option>
-                <option value="Angel"><#if character.species == "Angel">selected</#if>>Angel</option>
-                <option value="Demon"><#if character.species == "Demon">selected</#if>>Demon</option>
-                <option value="Monster"><#if character.species == "Monster">selected</#if>>Monster</option>
-                <option value="Ghost"><#if character.species == "Ghost">selected</#if>>Ghost</option>
-                <option value="Prophet"><#if character.species == "Prophet">selected</#if>>Prophet</option>
-                <option value="Horseman"><#if character.species == "Horseman">selected</#if>>Horseman</option>
-                <option value="Other"><#if character.species == "Other">selected</#if>>Other</option>
-            </select> 
+            <option value="Human"
+                <#if character.species == "Human">selected</#if>>
+                Human
+            </option>
+
+            <option value="Angel"
+                <#if character.species == "Angel">selected</#if>>
+                Angel
+            </option>
+
+            <option value="Demon"
+                <#if character.species == "Demon">selected</#if>>
+                Demon
+            </option>
+
+            <option value="Monster"
+                <#if character.species == "Monster">selected</#if>>
+                Monster
+            </option>
+
+            <option value="Ghost"
+                <#if character.species == "Ghost">selected</#if>>
+                Ghost
+            </option>
+
+            <option value="Prophet"
+                <#if character.species == "Prophet">selected</#if>>
+                Prophet
+            </option>
+
+            <option value="Horseman"
+                <#if character.species == "Horseman">selected</#if>>
+                Horseman
+            </option>
+
+            <option value="Other"
+                <#if character.species == "Other">selected</#if>>
+                Other
+            </option>
+        </select>
 
             <label>Occupation *</label> 
             <input type="text" name="occupation" value="${character.occupation}" required>
                        
 
             <label>Short Description *</label> 
-            <textarea name="description" value=""${character.description} required></textarea>
+            <textarea name="description" value="${character.description}" required></textarea>
             
 
             <label>First Appearance</label> 
