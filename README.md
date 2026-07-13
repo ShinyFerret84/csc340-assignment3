@@ -261,7 +261,7 @@ This project follows a layered architecture pattern, separating concerns into di
 ````
 ## API Endpoints
 
-All endpoints use the base URL: `http://localhost:8080/api/posts`
+All endpoints use the base URL: `http://localhost:8080/api/characters`
 
 ### 1. Get All Characters
 
@@ -562,19 +562,31 @@ SELECT * FROM characters WHERE UPPER(name) = UPPER(?)
 
 ```java
 @Entity
-public class Post {
+public class Characters {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String title;
+    private String name;
+
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String description;
 
     @Column(nullable = false)
-    private String author;
+    private String species;
 
-    @Column(columnDefinition = "TEXT")
-    private String content;
+    @Column(nullable = false)
+    private String occupation;
+
+    @Column(name = "first_appearance")
+    private String firstAppearance;
+
+    @Column(name = "image_url")
+    private String imageUrl;
+
+    @Column(name = "thumb_img")
+    private String thumbImg;
 }
 ```
 
@@ -665,7 +677,7 @@ The access the API at `http://localhost:8081/api/characters`
 
 - Verify the endpoint URL is correct
 - Make sure the application is running (use `mvnw.cmd spring-boot:run` on Windows or `./mvnw spring-boot:run` on Mac/Linux)
-- Check the base path is `/api/posts` for all endpoints
+- Check the base path is `/api/characters` for all endpoints
 
 ---
 
