@@ -35,7 +35,7 @@
             <h1>John Winchester's Journal</h1>
 
             <p class="journal-note">
-                <strong>Case File:</strong> # 0${character.id} ${character.name} <br>
+                <strong>Case File:</strong> # ${character.id?string["000"]} ${character.name} <br>
                  <br>
             </p>   
 

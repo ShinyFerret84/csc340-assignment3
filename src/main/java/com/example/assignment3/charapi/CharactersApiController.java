@@ -63,11 +63,12 @@ public class CharactersApiController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteCharacter(@PathVariable Long id) {
-        boolean deleted = charactersService.deleteCharacter(id);
-        if (deleted) {
-            return ResponseEntity.noContent().build();
+        Characters character = charactersService.getCharacterById(id);
+        if (character == null) {
+            return ResponseEntity.notFound().build();
         }
-        return ResponseEntity.notFound().build();
+        charactersService.deleteCharacter(id);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping("/search")

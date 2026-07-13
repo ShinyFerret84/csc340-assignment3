@@ -25,24 +25,25 @@ public class CharactersService {
     }
 
     public Characters updateCharacter(Long id, Characters updatedCharacter) {
-        Characters existingCharacter = charactersRepository.findById(id).orElse(null);
-        if (existingCharacter != null) {
-            existingCharacter.setName(updatedCharacter.getName());
-            existingCharacter.setDescription(updatedCharacter.getDescription());
-            existingCharacter.setSpecies(updatedCharacter.getSpecies());
-            existingCharacter.setOccupation(updatedCharacter.getOccupation());
-            existingCharacter.setFirstAppearance(updatedCharacter.getFirstAppearance());
-            return charactersRepository.save(existingCharacter);
-        }
-        return null;
+    return charactersRepository.findById(id)
+            .map(character -> {
+                character.setName(updatedCharacter.getName());
+                character.setDescription(updatedCharacter.getDescription());
+                character.setSpecies(updatedCharacter.getSpecies());
+                character.setOccupation(updatedCharacter.getOccupation());
+                character.setFirstAppearance(updatedCharacter.getFirstAppearance());
+                character.setImageUrl(updatedCharacter.getImageUrl());
+                character.setThumbImg(updatedCharacter.getThumbImg());
+
+                return charactersRepository.save(character);
+            })
+            .orElse(null);
     }
 
-    public boolean deleteCharacter(Long id) {
+    public void deleteCharacter(Long id) {
         if (charactersRepository.existsById(id)) {
-            charactersRepository.deleteById(id);
-            return true;
+        charactersRepository.deleteById(id);
         }
-        return false;
     }
 
     public List<Characters> getCharactersBySpecies(String species) {
@@ -56,4 +57,6 @@ public class CharactersService {
     public List<Characters> getCharactersByOccupation(String occupation) {
         return charactersRepository.findByOccupationContainingIgnoreCase(occupation);
     }
+
+
 }

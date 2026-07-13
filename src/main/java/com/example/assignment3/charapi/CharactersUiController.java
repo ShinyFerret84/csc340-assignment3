@@ -49,4 +49,37 @@ public class CharactersUiController {
         model.addAttribute("character", characters);
         return "details";
     }
+
+    @PostMapping("/delete/{id}")
+    public String deleteCharacter(@PathVariable Long id) {
+        Characters character = charactersService.getCharacterById(id);
+
+        if (character != null) {
+            charactersService.deleteCharacter(id);
+        }
+
+        return "redirect:/characters";
+    }
+
+    //Character Update Form
+    @GetMapping("/updateForm/{id}")
+    public String showUpdateForm(@PathVariable Long id, Model model) {
+        Characters character = charactersService.getCharacterById(id);
+
+        if (character == null) {
+            return "redirect:/characters";
+        }
+
+        model.addAttribute("character", character);
+        return "character-update";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateCharacter(
+            @PathVariable Long id,
+            @ModelAttribute Characters updatedCharacter) {
+
+        charactersService.updateCharacter(id, updatedCharacter);
+        return "redirect:/characters/" + id;
+    }
 }
