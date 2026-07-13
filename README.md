@@ -1,7 +1,7 @@
 # csc340-assignment3
 CSC 340 Assignment 3 - RESTful CRUD API for character website from assignment 2
 
-A comprehensive RESTful API for managing Character records, built with Spring Boot, Spring Data JPA, and PostgreSQL.
+A comprehensive ~~RESTful API~~ MVC application for managing Character records, built with Spring Boot, Spring Data JPA, and PostgreSQL.
 
 Live Link = https://csc340-assignment3.onrender.com
 
@@ -43,9 +43,12 @@ This is a CRUD (Create, Read, Update, Delete) API that manages character records
 | **Java**            | 25      | Programming language                   |
 | **Spring Boot**     | 4.1.0   | Framework for building the application |
 | **Spring Data JPA** | Latest  | ORM layer for database access          |
+| **FreeMarker**      | Latest  | Template engine for rendering views    |
 | **Hibernate**       | Latest  | JPA implementation                     |
 | **PostgreSQL**      | Latest  | Relational database                    |
 | **Maven**           | Latest  | Build and dependency management        |
+| **Lombok**          | Latest  | Reduces boilerplate code               |
+| **docker**          | Latest  | Containerization                       |
 
 ### Java - [Spring ORM with JPA and Hibernate](https://medium.com/@burakkocakeu/jpa-hibernate-and-spring-data-jpa-efa71feb82ac)
 
@@ -63,6 +66,8 @@ This is a CRUD (Create, Read, Update, Delete) API that manages character records
 **postgresql**: JDBC driver to connect to PostgreSQL database.
 
 **lombok**: Reduces boilerplate code by generating getters, setters, constructors, and other methods at compile time.
+
+**freemarker**: Template engine for rendering dynamic HTML pages.
 
 ---
 
@@ -82,10 +87,12 @@ Before you begin, ensure you have installed:
    - Sign up for a free account at [Neon.tech](https://neon.tech)
    - You only need an internet connection to connect to the database
 
-3. **Git** (optional, for cloning the project)
-   - Download from [Git Official Site](https://git-scm.com/)
+2. **GitHub** (for forking the project)
+   - Sign up for a free account at [GitHub](https://github.com/)
 
-### Setup Instructions
+3. **Render** (for deployment)
+   - Sign up for a free account at [Render](https://render.com/)
+   - Render is a cloud platform that allows you to deploy web applications easily
 
 ### Setup Instructions
 
@@ -207,7 +214,9 @@ src/main/java/com/example/assignment3/
 │   ├── Characters.java                  # Entity/model class representing a character
     ├── CharactersRepository.java        # Database access layer using Spring Data JPA
     ├── CharactersService.java           # Service layer for business logic
-    └── CharactersApiController.java     # REST controller handling HTTP requests
+    ├── CharactersApiController.java     # REST controller handling HTTP requests
+    ├── CharactersUiController.java      # Controller for rendering web pages with FreeMarker templates. 
+    └── Assignment3Application.java      # Main controller for handling the root endpoint
 
 src/main/resources/
 └── application.properties           # Configuration file
@@ -223,9 +232,11 @@ This project follows a layered architecture pattern, separating concerns into di
                  │
 ┌────────────────▼────────────────────┐
 │ Controller Layer                    │
-| (CharactersApiController.java)      │
+| (CharactersApiController.java   $   |
+|   CharacterUiController.java)       │
 │ - Handles HTTP requests/responses   │
-│ - Maps URLs to methods(endpoints)   │
+│ - - API: Returns JSON responses     │
+| - UI: Renders views using templates │
 └────────────────┬────────────────────┘
                  │
 ┌────────────────▼────────────────────┐
@@ -252,7 +263,7 @@ This project follows a layered architecture pattern, separating concerns into di
 
 All endpoints use the base URL: `http://localhost:8080/api/posts`
 
-### 1. Get All Posts
+### 1. Get All Characters
 
 ```http
 GET /api/characters
@@ -272,7 +283,7 @@ GET /api/characters
   },
 ]
 ```
-### 2. Get Post by ID
+### 2. Get Character by ID
 
 ```http
 GET /api/characters/{id}
@@ -291,7 +302,7 @@ GET /api/characters/{id}
 }
 ```
 
-### 3. Create a New Post
+### 3. Create a New Character
 
 ```http
 POST /api/characters
@@ -308,15 +319,17 @@ request body:
 
 ```json
 {
-  "id": 2,
-  "name": "Dean Winchester",
-  "description": "A skilled hunter who travels across America fighting supernatural creatures.",
-  "species": "human.",
-  "occupation": "hunter.",
-  "firstAppearance": "Season 1 Episode 1."
+  "id": 12,
+  "name": "Alan Corbett",
+  "description": "Worked as an intern for Ghostfacers ghost hunting team until his untimely demise in a haunted house.",
+  "species": "ghost",
+  "occupation": "ghostfacer",
+  "firstAppearance": "Season 3 Episode 13",
+  "imageUrl": "/Images/alan-corbett.jpg",
+  "thumbImg": "/thumbnails/alan-corbett.jpg"
 }
 ```
-### 4. Update an Existing Post
+### 4. Update an Existing Character
 
 ```http
 PUT /api/characters/{id}
@@ -342,7 +355,7 @@ request body:
   "firstAppearance": "Season 1 Episode 1."
 }
 ```
-### 5. Delete a Post
+### 5. Delete a Character
 
 ```http
 DELETE /api/characters/{id}
@@ -350,7 +363,7 @@ DELETE /api/characters/{id}
 
 **Response:** <Empty>
 
-### 6. Search Posts by name string
+### 6. Search Character by name string
 
 ```http
 GET /api/characters/search?query={sam}
@@ -371,7 +384,7 @@ GET /api/characters/search?query={sam}
 ]
 ```
 
-### 6. Search Posts by species
+### 6. Search Character by species
 
 ```http
 GET /api/characters/search?query={human}
@@ -400,7 +413,7 @@ GET /api/characters/search?query={human}
 }
 ]
 ```
-### 6. Search Posts by occupation
+### 6. Search Character by occupation
 
 ```http
 GET /api/characters/search?query={hunter}
@@ -429,6 +442,52 @@ GET /api/characters/search?query={hunter}
 }
 ]
 ```
+## Web UI Routes
+
+- `GET /characters`: View all characters
+- `GET /characters/{id}`: View a character's details
+- `GET /create`: Display the Add Character form
+- `POST /create`: Submit the Add Character form
+- `GET /updateForm/{id}`: Display the Update Character form
+- `POST /update/{id}`: Submit the Update Character form
+- `POST /delete/{id}`: Delete a character
+- `GET /about`: View the About page
+
+## MVC (Model-View-Controller) Pattern
+
+This application follows Spring Boot's MVC architecture.
+
+- **Model**: The `Characters` entity represents the Supernatural character data stored in the PostgreSQL database.
+- **View**: FreeMarker templates (`index.ftlh`, `details.ftlh`, `new-character-form.ftlh`, `character-update.ftlh`, and `about.ftlh`) generate the HTML pages displayed to users.
+- **Controller**:
+  - `CharactersUiController` handles web requests and returns FreeMarker views.
+  - `CharactersApiController` handles REST API requests and returns JSON responses.
+
+### Example MVC Controllers
+
+```java
+@Controller
+@GetMapping("/characters")
+public String getAllCharacters(Model model) {
+    model.addAttribute("characterList",
+            charactersService.getAllCharacters());
+    return "index";
+}
+
+@RestController
+@RequestMapping("/api/characters")
+@GetMapping
+public ResponseEntity<List<Characters>> getAllCharacters() {
+    List<Characters> characters = charactersService.getAllCharacters();
+
+    if (characters.isEmpty()) {
+        return ResponseEntity.ok(Collections.emptyList());
+    }
+
+    return ResponseEntity.ok(characters);
+}
+```
+
 ## Key Spring Boot Concepts
 
 ### What is Spring Boot?
@@ -530,16 +589,18 @@ public class Post {
 
 The application uses a single table to store character data:
 
-### POSTS Table
+### Characters Table
 
-| Column             | Type         | Constraints | Description                     |
-| ------------------ | ------------ | ----------- | ------------------------------- |
-| `id`               | BIGINT       | PRIMARY KEY | Unique identifier for each post |
-| `name `            | VARCHAR(255) | NOT NULL    | name of character               |
-| `description`      | text         | NOT NULL    | description of character        |
-| `species`          | VARCHAR(255) | NOT NULL    | species of character            |
-| `occupation        | VARCHAR(255) | NOT NULL    | occupation of character         |
-| `firstAppratance`  | VARCHAR(255) |             | first appearance of character   |
+| Column             | Type         | Constraints | Description                           |
+| ------------------ | ------------ | ----------- | ------------------------------------- |
+| `id`               | BIGINT       | PRIMARY KEY | Unique identifier for each character  |
+| `name `            | VARCHAR(255) | NOT NULL    | name of character                     |
+| `description`      | text         | NOT NULL    | description of character              |
+| `species`          | VARCHAR(255) | NOT NULL    | species of character                  |
+| `occupation`       | VARCHAR(255) | NOT NULL    | occupation of character               |
+| `first_appearance` | VARCHAR(255) |             | first appearance of character         |
+| `image_url`        | VARCHAR(255) |             | full size image of character          |
+| `thumb_img`        | VARCHAR(255) |             | small, uniform size image of character|
 
 **Note**: This schema is automatically created by Hibernate based on the entity class when `spring.jpa.hibernate.ddl-auto=update` is set in `application.properties`.
 
@@ -593,6 +654,18 @@ The access the API at `http://localhost:8081/api/characters`
 - Ensure `Content-Type: application/json` header is set
 - Verify JSON syntax is valid (use online JSON validator)
 - Check all required fields are included (name and email are required)
+
+### Issue: Whitelabel Error Page instead of a view
+
+**Solution**: Check that the name of the view being returned is spelled correctly.
+
+### Issue: Getting 404 errors
+
+**Solution**:
+
+- Verify the endpoint URL is correct
+- Make sure the application is running (use `mvnw.cmd spring-boot:run` on Windows or `./mvnw spring-boot:run` on Mac/Linux)
+- Check the base path is `/api/posts` for all endpoints
 
 ---
 

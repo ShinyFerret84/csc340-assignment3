@@ -71,7 +71,7 @@ public class CharactersUiController {
         }
 
         model.addAttribute("character", character);
-        return "character-update";
+        return "update-character";
     }
 
     @PostMapping("/update/{id}")
